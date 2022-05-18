@@ -1,0 +1,95 @@
+imap jk <Esc>
+let mapleader=" "
+
+""" plugins
+set commentary
+" set easymotion
+set highlightedyank
+" set multiple-cursors
+set surround
+
+""" common settings
+set clipboard+=unnamed
+set clipboard+=ideaput
+set hlsearch
+set ignorecase
+set incsearch
+set number
+set scrolloff=5
+set showmode
+set smartcase		" no ignore case when pattern is uppercase
+
+""" Idea specific settings
+set ideajoin
+set ideamarks 		" sync ij and vim bookmarks
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+" map <leader>f <Plug>(easymotion-s)
+" map <leader>e <Plug>(easymotion-f)
+
+map <leader>d <Action>(Debug)
+map <leader>n <Action>(RenameElement)
+map <leader>f <Action>(Refactorings.QuickListPopupAction)
+map <leader>c <Action>(Stop)
+map <leader>Z <Action>(ToggleDistractionFreeMode)
+
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <S-Space> <Action>(GotoNextError)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gp :action GotToSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+
+nnoremap ,r :action ContextRun<CR>
+nnoremap ,c :action RunClass<CR>
+nnoremap ,f :action ChooseRunConfiguration<CR>
+nnoremap ,t :action ActivateRunToolWindow<CR>
+nnoremap ,u :action Rerun<CR>
+
+""" Windows
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
+
+" nnoremap <leader>n :action NextWindow<CR>
+nnoremap <leader>qq :action CloseAllEditors<CR>
+
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+""" Cursive mappings
+nnoremap <leader>J :action :cursive.actions.paredit/forward<CR>
+nnoremap <leader>K :action :cursive.actions.paredit/backward<CR>
+
+nnoremap <leader>H :action :cursive.actions.paredit/barf-forwards<CR>
+nnoremap <leader>L :action :cursive.actions.paredit/slurp-forwards<CR>
+
+nnoremap  <leader>w :action EditorSelectWord<CR>
+vnoremap  <leader>w :action EditorSelectWord<CR>
+onoremap  <leader>w :action EditorSelectWord<CR>
+nnoremap  <leader>W :action EditorUnSelectWord<CR>
+vnoremap  <leader>W :action EditorUnSelectWord<CR>
+onoremap  <leader>W :action EditorUnSelectWord<CR>
+
+nnoremap  <leader>m :action :cursive.actions.paredit/move-form-down<CR>
+nnoremap  <leader>M :action :cursive.actions.paredit/move-form-up<CR>
+
+" nnoremap  <leader>z :action :cursive.repl.actions/run-top-sexp<CR>
+" vnoremap  <leader>z :action :cursive.repl.actions/run-top-sexp<CR>
+
+""" don't use Ex mode, use Q for formatting
+map Q gq
+
